@@ -14,7 +14,6 @@ GEF is a python based plugin extension of GDB that adds visualization tools like
 
 GEF's context section can be extremely helpful but also overwhelming, especially at first. When starting out, it's best to remove most the sections you won't be using and instead opt for simpler sections like "code source stack".
 
-
 ## GDB/GEF Cheatsheet
 
 Remember that in a debugger, you have full control over a program. Take advantage of this control and use the options available to you and maximize the value this dynamic analysis offers you.
@@ -114,4 +113,10 @@ gef> set *(int *)0x7fffffffff = 4
 or 
 
 gef> set *(long long *)0x7ffffffff = 876543456
+```
+
+Manipulate GEF Context Layout
+
+```gdb-gef
+gef> gef config context.layout "code source stack"
 ```
