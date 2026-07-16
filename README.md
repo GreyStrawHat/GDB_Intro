@@ -20,6 +20,26 @@ Remember that in a debugger, you have full control over a program. Take advantag
 
 ### Quick Start Guide
 
+For a more detailed information on any command you see here just use the help command
+
+```gdb-gef
+gef> help disassemble
+
+gef> help break
+
+gef> help print
+```
+
+Disassemble a function
+
+```gdb-gef
+gef> disassemble <function_name>
+
+or
+
+gef> disassemble *<function_address>
+```
+
 Run program
 
 ```gdb-gef
@@ -39,13 +59,43 @@ or
 
 gef> break <symbol_name>
 
-or break *<symbol_name> + <int>
+or 
+
+break *<symbol_name> + <int>
+
+or
+
+break <source_code_line_num>
+```
+
+List Breakpoints
+
+```gdb-gef
+info breakpoints
 ```
 
 Continue Program Execution
 
 ```gdb-gef
 gef> continue
+```
+
+Print a value onto the screen
+
+```gdb-gef
+gef> print <variable_name>
+
+or 
+
+gef> print <function_name>
+
+or 
+
+gef> print /d 0x10
+
+or 
+
+gef> print /x 16
 ```
 
 Execute Next Instruction (Step Over Function Call)
@@ -119,4 +169,22 @@ Manipulate GEF Context Layout
 
 ```gdb-gef
 gef> gef config context.layout "code source stack"
+```
+
+### Source Code Commands
+
+Get Source Code and Debug Information
+
+```gdb-gef
+gef> info source
+```
+
+List Source Code
+
+```gdb-gef
+gef> list <line_num_to_start> , <line_num_to_stop>
+
+or 
+
+gef> list <filename>:<line_num_to_start> , <line_num_to_stop>
 ```
