@@ -20,6 +20,20 @@ Remember that in a debugger, you have full control over a program. Take advantag
 
 ### Quick Start Guide
 
+To debug most effectively in GDB, compile your program with the `-ggdb3` flag as opposed to the `-g` flag.
+
+You can then load your program into GDB in two ways.
+
+```gdb-gef
+$> gdb -q <filepath>
+
+or 
+
+# Enter GDB then load the file.
+$> gdb -q
+gef> file <filepath>
+```
+
 For a more detailed information on any command you see here just use the help command
 
 ```gdb-gef
