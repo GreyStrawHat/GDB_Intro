@@ -25,10 +25,21 @@ Create a file named `gef` and add the following contents to it.
 exec gdb -q -ex init-gef "$@"
 ```
 
-Move the file to the /usr/local/bin/ directory.
+Move the file to the /usr/local/bin/ directory after making it executable.
 
 ```bash
+chmod +x ./gef
 sudo mv gef /usr/local/bin/
+```
+
+Reload your shell session
+
+```bash
+source ~/.bashrc
+
+or 
+
+. ~/.bashrc
 ```
 
 Now you can load gef by running the command `gef`.
@@ -37,13 +48,13 @@ Now you can load gef by running the command `gef`.
 
 GEF's context section can be extremely helpful but also overwhelming, especially at first. When starting out, it's best to remove most the sections you won't be using and instead opt for simpler sections like the
 
-Executable Code ![Executable Code](images/disasm.png)
+Disassembled Code ![Executable Code](images/disasm.png)
 
 Source Code ![Source Code](images/source_code.png)
 
 and
 
-Stack ![Stack](images/stack.png)
+Stack Memory ![Stack](images/stack.png)
 
 You can configure this in gef with the command: `gef> gef config context.layout "code source stack"`
 
@@ -57,13 +68,12 @@ To debug most effectively in GDB, compile your program with the `-ggdb3` flag as
 
 You can then load your program into GDB in two ways.
 
-```gdb-gef
-$> gdb -q <filepath>
+```gef
+$ gef <filepath>
 
 or 
 
-# Enter GDB then load the file.
-$> gdb -q
+$ gef
 gef> file <filepath>
 ```
 
