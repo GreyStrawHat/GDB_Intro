@@ -10,17 +10,40 @@ GDB is an industry standard debugging tool that comes with most flavors of linux
 
 GEF is a python based plugin extension of GDB that adds visualization tools like context sections that showcases all kinds of data such as memory, addresses and additional helper markers like the arguments for a function that's about to be called and executed.
 
+### GEF Installation and Setup
+
+You can use GEF through cloning the repository and sourcing the python file `gef.py` in the `gef` directory. The `.gdbinit` file in the GDB Intro repository sources this file for you automatically. Make sure to move/copy it into your home directory.
+
+```git
+cd && git clone https://github.com/hugsy/gef.git
+```
+
+Create a file named `gef` and add the following contents to it.
+
+```bash
+#!/bin/sh
+exec gdb -q -ex init-gef "$@"
+```
+
+Move the file to the /usr/local/bin/ directory.
+
+```bash
+sudo mv gef /usr/local/bin/
+```
+
+Now you can load gef by running the command `gef`.
+
 ### GEF Context Section
 
 GEF's context section can be extremely helpful but also overwhelming, especially at first. When starting out, it's best to remove most the sections you won't be using and instead opt for simpler sections like the
 
-Executable Code ![Executable Code](images/Code%20Section.png)
+Executable Code ![Executable Code](images/disasm.png)
 
-Source Code ![Source Code](images/Source_Code.png)
+Source Code ![Source Code](images/source_code.png)
 
 and
 
-Stack ![Stack](images/Stack%20Section.png)
+Stack ![Stack](images/stack.png)
 
 You can configure this in gef with the command: `gef> gef config context.layout "code source stack"`
 
